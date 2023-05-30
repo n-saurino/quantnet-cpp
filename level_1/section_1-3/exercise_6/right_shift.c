@@ -1,10 +1,8 @@
-#include <iostream>
-
-using namespace std;
+#include <stdio.h>
 
 int main() {
     int val;
-    printf("Please enter the integer value for the right shift:");
+    printf("Please enter the integer value for the right shift: ");
     scanf("%d", &val);
 
     val >>= 2;
