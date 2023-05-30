@@ -11,18 +11,23 @@ multiple words.
 
 int main(){
 
-    int input, last_char, chars, words, lines;
-    last_char = '\n';
-    chars = words = lines = 0;
+    int input, chars, words, lines;
+    chars = words = 0;
+    lines = 1;
+    int word_flag = 0;
 
     printf("Please enter your input from the keyboard:\n");
-    while((input = getchar()) != EOF){
+    while((input = getchar()) != EOF && input != 26 && input != 4){
         chars++;
+        // printf("input: %d", input);
         if(input == '\n'){
             lines++;
         }
 
-        if(input != ' ' && last_char == ' '){
+        if(input == ' ' || input == '\n' || input == '\t'){
+            word_flag = 0;
+        }else if (!word_flag){
+            word_flag = 1;
             words++;
         }
     }
