@@ -12,6 +12,7 @@ multiple words.
 
 // NOTES: I counted all characters including whitespace and new line characters. Did not count the terminating character ('EOF'/CTRL+Z/D).
 
+
 int main(){
 
     int input, chars, words, lines;
@@ -23,15 +24,27 @@ int main(){
     while((input = getchar()) != EOF && input != 26 && input != 4){
         chars++;
         // printf("input: %d", input);
-        if(input == '\n'){
+        switch (input)
+        {
+        case 10:
             lines++;
-        }
-
-        if(input == ' ' || input == '\n' || input == '\t'){
             word_flag = 0;
-        }else if (!word_flag){
-            word_flag = 1;
-            words++;
+            break;
+        
+        case 32:
+            word_flag = 0;
+            break;
+        
+        case 9:
+            word_flag = 0;
+            break;
+        
+        default:
+            if(!word_flag){
+                word_flag = 1;
+                words++;
+            }
+            break;
         }
     }
 
