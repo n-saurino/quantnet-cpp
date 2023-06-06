@@ -1,10 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\level_2",
+    "\\level_2\\section_1_7",
+    "\\level_2\\section_1_7\\ex4\\ex4",
+    "\\level_2\\section_1_8",
+    "\\level_2\\section_1_8\\ex1",
+    "\\level_2\\section_1_8\\ex1\\ex1",
     "\\level_2\\section_1_9",
-    "\\level_2\\section_1_9\\ex2"
+    "\\level_2\\section_1_9\\ex1",
+    "\\level_2\\section_1_9\\ex1\\ex1",
+    "\\level_2\\section_1_9\\ex2",
+    "\\level_2\\section_1_9\\ex2\\ex2"
   ],
-  "SelectedNode": "\\level_2\\section_1_9\\ex2\\ex2.sln",
+  "SelectedNode": "\\level_2",
   "PreviewInSolutionExplorer": false
 }

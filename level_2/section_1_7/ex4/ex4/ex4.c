@@ -12,6 +12,10 @@ The day-name (1-7) should be written "hard-coded” into the program using an arra
 strings.
 */
 
+// We build a 2D character array and populate it with the name of each day of the week
+// Then when an integer is passed to the DayName function, we can use it to index
+// into our 2D character array and print the name associated with that integer
+
 void DayName(int day);
 
 int main() {
@@ -35,6 +39,6 @@ void DayName(int day) {
 	strcpy_s(days[5], sizeof("Saturday"), "Saturday");
 	strcpy_s(days[6], sizeof("Sunday"), "Sunday");
 	
-	printf("%d gives: Day %d is a %s", day, day, days[day]);
+	printf("%d gives: Day %d is a %s", day, day, days[day]); // Print the day based on the integer that is passed into the DayName function
 
 }
