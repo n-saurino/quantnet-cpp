@@ -9,7 +9,7 @@ program should be the amount of characters, the amount of words and the amount o
 newlines that have been typed. Multiple consecutive spaces shouldnot be counted as
 multiple words.
 */
-
+// Reads user input with a while loop from the keyboard and counts the total characters, words and lines in the input using switch-case statements
 // NOTES: I counted all characters including whitespace and new line characters. Did not count the terminating character ('EOF'/CTRL+Z/D).
 
 

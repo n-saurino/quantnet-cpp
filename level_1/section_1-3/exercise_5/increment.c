@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Demonstrates the difference between pre and post decrement by printing results to screen
+
 int main(){
     int i = 1;
 

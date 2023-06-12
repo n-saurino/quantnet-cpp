@@ -4,14 +4,18 @@
 
 /*
 PROMPT
-Create a C-program that counts how many times each of the numbers 0-4 have been
-typed. Use a switch-case construction. Use default to count the number of other
-characters. The input will be halted with ^Z (EOF). EOF means End-of-File and is
-defined in <stdio.h>. Thus, the constant EOF can be used in a condition (test if EOF has
-been typed).
-Print the amount of times a certain number has been typed.
+Extend the program of exercise 6 in such a way that the frequency of number 3 is shown
+in words.
+
+E.g.: Number three appears two times.
+
+Only print the frequency when it is smaller than three. If the frequency is three or larger,
+then print: "The number three appears more than two times."
 */
 
+// Prints the frequency of the characters 0-4 and any other characters after reading input from the user.
+// Uses a switch-case statement to count the characters
+// Also uses a switch-case statement to print the results of the character '3' based on the instructions
 // NOTES: Counting white space and new line characters as other characters but not terminating characters
 
 

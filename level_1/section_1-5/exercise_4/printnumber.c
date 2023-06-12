@@ -1,5 +1,19 @@
 #include <stdio.h>
 
+/*
+PROMPT: Write a recursive function printnumber() which gets the number to be printed. This
+number is an integer. The function should print the number digit by digit by using
+the putchar() function. Don’t use printf().
+
+Tips: Use the modulo operator (%) to determine the digit to print. Use the division
+operator (/) to calculate the argument for the recursive call. Don’t forget to handle
+negative numbers correctly.
+*/
+
+// This program uses the function printnumber to recursively print the number passed in as an argument, character by character
+// We use the modulus operator and the division operator to identify the characters to print and truncate the input value with each call
+// There is special attention paid to whether the value is positive or negative using a "sign" flag and an if statement
+
 int printnumber(int input);
 
 int main(){

@@ -9,11 +9,13 @@ typed. Use a switch-case construction. Use default to count the number of other
 characters. The input will be halted with ^Z (EOF). EOF means End-of-File and is
 defined in <stdio.h>. Thus, the constant EOF can be used in a condition (test if EOF has
 been typed).
+
 Print the amount of times a certain number has been typed.
 */
 
+// Prints the frequency of the characters 0-4 and any other characters after reading input from the user.
+// Uses a switch-case statement to count the characters
 // NOTES: Counting white space and new line characters as other characters but not terminating characters
-
 
 int main(){
 

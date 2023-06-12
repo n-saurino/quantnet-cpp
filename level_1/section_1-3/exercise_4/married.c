@@ -1,6 +1,8 @@
 /*Married C Program*/
 #include <stdio.h>
 
+// Prints whether the married value is true or false using a ternary operator
+
 int main(){
     int married = 0;
     // int married = 1;

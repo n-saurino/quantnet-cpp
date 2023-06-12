@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Shifts the binary values of an integer two places to the right and prints the result to standard out
+
 int main() {
     int val;
     printf("Please enter the integer value for the right shift: ");

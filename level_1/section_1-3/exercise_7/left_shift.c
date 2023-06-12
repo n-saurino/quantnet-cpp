@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Performs the function val*2^n using bit shifts and prints the result to standard out
+
 int main() {
     int val;
     int n;

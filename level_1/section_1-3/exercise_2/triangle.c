@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Prompts the user for base and height values and calculates the surface area of a triangle with a 90 degree angle and prints the result to standard out
+
 int main() {    
     float base;
     float height; 
