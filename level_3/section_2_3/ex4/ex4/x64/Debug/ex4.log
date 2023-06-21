@@ -1,0 +1,5 @@
+﻿  ex4.cpp
+C:\Users\nigel\Github\quantnet-cpp\level_3\section_2_3\ex4\ex4\ex4.cpp(41,25): warning C4305: 'argument': truncation from 'double' to 'float'
+  Point.cpp
+  Generating Code...
+  ex4.vcxproj -> C:\Users\nigel\Github\quantnet-cpp\level_3\section_2_3\ex4\x64\Debug\ex4.exe

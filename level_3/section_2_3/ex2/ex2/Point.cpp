@@ -47,8 +47,11 @@ double Point::DistanceOrigin() {
 
 double Point::Distance(const Point &p) {
 	double distance;
-	float p_x = p->GetX();
-	float p_y = p->GetY();
+	float p_x = p.m_x;
+	float p_y = p.m_y;
+	
+	// attempting to change the object passed by const reference, Error C3490: 'm_x' cannot be modified because it is being accessed through a const object
+	//p.m_x = 5; 
 
 	distance = std::sqrt(std::pow((m_x - p_x), 2) + std::pow((m_y - p_y), 2));
 	return distance;
