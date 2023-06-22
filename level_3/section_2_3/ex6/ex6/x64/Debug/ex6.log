@@ -1,0 +1,4 @@
+﻿  ex6.cpp
+C:\Users\nigel\Github\quantnet-cpp\level_3\section_2_3\ex6\ex6\ex6.cpp(31,10): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\nigel\Github\quantnet-cpp\level_3\section_2_3\ex6\ex6\ex6.cpp(32,10): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  ex6.vcxproj -> C:\Users\nigel\Github\quantnet-cpp\level_3\section_2_3\ex6\x64\Debug\ex6.exe
