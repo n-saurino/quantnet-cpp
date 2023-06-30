@@ -1,0 +1,8 @@
+﻿  Point.cpp
+C:\Users\nigel\Github\quantnet-cpp\level_4\section_2_4\ex3\ex3\Point.cpp(16,8): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\nigel\Github\quantnet-cpp\level_4\section_2_4\ex3\ex3\Point.cpp(17,8): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\nigel\Github\quantnet-cpp\level_4\section_2_4\ex3\ex3\Point.cpp(75,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\nigel\Github\quantnet-cpp\level_4\section_2_4\ex3\ex3\Point.cpp(75,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\nigel\Github\quantnet-cpp\level_4\section_2_4\ex3\ex3\Point.cpp(94,14): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\nigel\Github\quantnet-cpp\level_4\section_2_4\ex3\ex3\Point.cpp(95,14): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  ex3.vcxproj -> C:\Users\nigel\Github\quantnet-cpp\level_4\section_2_4\ex3\x64\Debug\ex3.exe
