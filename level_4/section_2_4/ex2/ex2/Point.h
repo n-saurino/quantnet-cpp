@@ -41,6 +41,9 @@ public:
 	friend std::ostream& operator << (std::ostream& os, const Point& p); // Send to ostream.
 };
 
+// Global operator overloadings
+std::ostream& operator << (std::ostream& os, const Point& p); // Send to ostream.
+
 #endif
 
 

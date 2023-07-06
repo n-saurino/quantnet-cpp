@@ -27,9 +27,9 @@ public:
 	// Member operator overloading
 	Line& operator = (const Line& source);
 
-	// Global operator overloadings
-	friend std::ostream& operator << (std::ostream& os, const Line& l); // Send to ostream.
-
 };
+
+// Global operator overloadings
+std::ostream& operator << (std::ostream& os, const Line& l); // Send to ostream.
 
 #endif

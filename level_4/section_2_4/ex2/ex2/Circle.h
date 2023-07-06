@@ -28,9 +28,10 @@ public:
 	// Member operator overloading
 	Circle& operator = (const Circle& source);
 
-	// Global operator overloading
-	friend std::ostream& operator << (std::ostream& os, Circle& c); // send to ostream.
 };
+
+// Global operator overloading
+std::ostream& operator << (std::ostream& os, Circle& c); // send to ostream.
 
 #endif
 
