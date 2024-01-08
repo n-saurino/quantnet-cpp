@@ -1,8 +1,12 @@
 #include <iostream>
-#include "Monster.h"
+#include "Point.h"
+#include "Line.h"
+#include "Circle.h"
 
 int main(){
-    std::cout << "Hello World!\n";
-    Monster monster;
-    monster.SayHello();
+    // Calling Line Constructor
+    Saurino::CAD::Line l;
+    
+    // Calling Circle Constructor 
+    Saurino::CAD::Circle c;
 }

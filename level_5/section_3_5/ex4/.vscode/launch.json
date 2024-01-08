@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "clang build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "lldb",
+            "preLaunchTask": "build and run",
+            "miDebuggerPath": "/usr/bin/clang++"
+        }
+    ],
+    "tasks": [
+        {
+            "label": "build and run",
+            "type": "shell",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
