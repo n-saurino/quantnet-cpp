@@ -1,6 +1,8 @@
 #ifndef Stack_cpp
 #define Stack_cpp
 #include "Stack.h"
+#include "StackFullException.h"
+#include "StackEmptyException.h"
 
 /*
 Stack works from front to back, moving the current index from 0 to m_size of
@@ -24,9 +26,9 @@ void Stack<T>::Push(const T& other){
         m_array[m_current] = other;
         m_current++;
     }
-    catch(const std::exception& e)
+    catch(const OutOfBoundsException& e)
     {
-        std::cerr << e.what() << '\n';
+        throw StackFullException();
     }
     
 }
@@ -36,15 +38,17 @@ T Stack<T>::Pop(){
     T temp;
     try
     {
-        temp = m_array[m_current-1];
         m_current--;
+        temp = m_array[m_current];
         return temp;
     }
-    catch(const std::exception& e)
+    catch(const OutOfBoundsException& e)
     {
-        std::cerr << e.what() << '\n';
+        m_current = 0;
+        throw StackEmptyException();
     }
 }
+
 template<typename T>
 Array<T>& Stack<T>::GetArray(){
     return m_array;

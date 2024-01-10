@@ -24,9 +24,10 @@ void Stack<T>::Push(const T& other){
         m_array[m_current] = other;
         m_current++;
     }
-    catch(const std::exception& e)
+    catch(const OutOfBoundsException& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.GetMessage() << '\n';
+        throw std::exception();
     }
     
 }
@@ -36,15 +37,18 @@ T Stack<T>::Pop(){
     T temp;
     try
     {
-        temp = m_array[m_current-1];
         m_current--;
+        temp = m_array[m_current];
         return temp;
     }
-    catch(const std::exception& e)
+    catch(const OutOfBoundsException& e)
     {
-        std::cerr << e.what() << '\n';
+        m_current = 0;
+        std::cerr << e.GetMessage() << '\n';
+        throw std::exception();
     }
 }
+
 template<typename T>
 Array<T>& Stack<T>::GetArray(){
     return m_array;

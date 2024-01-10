@@ -101,7 +101,6 @@ T& Array<T>::operator [] (int index) {
 	else {
 		throw OutOfBoundsException(index);
 	}
-
 }
 
 template<typename T>

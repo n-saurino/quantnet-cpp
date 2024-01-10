@@ -15,16 +15,19 @@ int main(){
     */
 
     Stack<Saurino::CAD::Point> stack;
+    try
+    {
+        for(int i = 0; i < stack.GetArray().Size(); i++){
+           stack.Push(Saurino::CAD::Point(i,i));
+        }
 
-    for(int i = 0; i < stack.GetArray().Size(); i++){
-        stack.Push(Saurino::CAD::Point(i,i));
+        for(int i = 0; i < stack.GetArray().Size()+1; i++){
+            Saurino::CAD::Point temp = stack.Pop();
+            cout << i << ": " << temp << endl;
+        }
     }
-
-    for(int i = 0; i < stack.GetArray().Size(); i++){
-        
-        Saurino::CAD::Point temp = stack.Pop();
-        cout << i << ": " << temp << endl;
-
-    }
-
+    catch(const StackException& e)
+    {
+        std::cerr << e.GetMessage() << '\n';
+    }   
 }
