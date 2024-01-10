@@ -14,7 +14,7 @@ int main(){
     Here the Stack class delegates the storage of elements to the Array class.
     */
 
-    Stack<Saurino::CAD::Point> stack;
+    Stack<Saurino::CAD::Point> stack(5);
 
     try
     {

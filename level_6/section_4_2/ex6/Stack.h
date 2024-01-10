@@ -13,6 +13,7 @@ class Stack{
 
     public:
     Stack();
+    Stack(int size);
     ~Stack();
     void Push(const T& other);
     T Pop();

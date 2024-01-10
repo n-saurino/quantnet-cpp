@@ -12,6 +12,13 @@ the array
 template<typename T>
 Stack<T>::Stack(){
     m_current = 0;
+    m_array = Array<T>();
+}
+
+template<typename T>
+Stack<T>::Stack(int size){
+    m_current = 0;
+    m_array = Array<T>(size);
 }
 
 template<typename T>

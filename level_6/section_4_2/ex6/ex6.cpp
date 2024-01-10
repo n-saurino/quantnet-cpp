@@ -7,14 +7,10 @@ using namespace std;
 int main(){
 
     /*
-    Testing the Stack 
-    Using another class as data member is called composition. 
-    In this case the Stack class uses internally an Array class. 
-    Forwarding functionality to another class is called delegation. 
-    Here the Stack class delegates the storage of elements to the Array class.
+    Testing the StackException class
     */
 
-    Stack<Saurino::CAD::Point> stack;
+    Stack<Saurino::CAD::Point> stack(5);
     try
     {
         for(int i = 0; i < stack.GetArray().Size(); i++){

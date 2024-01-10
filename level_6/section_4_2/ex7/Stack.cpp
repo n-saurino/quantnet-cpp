@@ -1,31 +1,27 @@
 #ifndef Stack_cpp
 #define Stack_cpp
 #include "Stack.h"
+#include "StackFullException.h"
+#include "StackEmptyException.h"
 
 /*
 Stack works from front to back, moving the current index from 0 to m_size of
 the array
 */
 
-template<typename T>
-Stack<T>::Stack(){
-    m_current = 0;
-    m_array = Array<T>();
-}
-
-template<typename T>
-Stack<T>::Stack(int size){
+template<typename T, int size>
+Stack<T, size>::Stack(){
     m_current = 0;
     m_array = Array<T>(size);
 }
 
-template<typename T>
-Stack<T>::~Stack(){
+template<typename T, int size>
+Stack<T, size>::~Stack(){
     // calls destructor of Array class
 }
 
-template<typename T>
-void Stack<T>::Push(const T& other){
+template<typename T, int size>
+void Stack<T, size>::Push(const T& other){
     try
     {
         m_array[m_current] = other;
@@ -33,14 +29,13 @@ void Stack<T>::Push(const T& other){
     }
     catch(const OutOfBoundsException& e)
     {
-        std::cerr << e.GetMessage() << '\n';
-        throw std::exception();
+        throw StackFullException();
     }
     
 }
 
-template<typename T>
-T Stack<T>::Pop(){
+template<typename T, int size>
+T Stack<T, size>::Pop(){
     T temp;
     try
     {
@@ -51,18 +46,17 @@ T Stack<T>::Pop(){
     catch(const OutOfBoundsException& e)
     {
         m_current = 0;
-        std::cerr << e.GetMessage() << '\n';
-        throw std::exception();
+        throw StackEmptyException();
     }
 }
 
-template<typename T>
-Array<T>& Stack<T>::GetArray(){
+template<typename T, int size>
+Array<T>& Stack<T, size>::GetArray(){
     return m_array;
 }
 
-template<typename T>
-T& Stack<T>::operator = (const T& source){
+template<typename T, int size>
+T& Stack<T, size>::operator = (const T& source){
     if(this != &source){
         delete m_array;
         m_array = source.m_array;

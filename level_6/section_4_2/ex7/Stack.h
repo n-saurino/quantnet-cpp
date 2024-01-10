@@ -2,7 +2,7 @@
 #define STACK_H
 #include "Array.cpp"
 
-template<typename T>
+template<typename T, int size>
 class Stack{
     private:
     int m_current;
@@ -13,7 +13,6 @@ class Stack{
 
     public:
     Stack();
-    Stack(int size);
     ~Stack();
     void Push(const T& other);
     T Pop();
