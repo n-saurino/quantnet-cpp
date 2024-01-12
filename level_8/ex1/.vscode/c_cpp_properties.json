@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "name": "Mac",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/opt/homebrew/include",  // Path to Boost headers
+        "/opt/homebrew/include/boost"  // Additional path to Boost headers (if needed)
+      ],
+      "defines": [],
+      "macFrameworkPath": [
+        "/System/Library/Frameworks",
+        "/Library/Frameworks"
+      ],
+      "compilerPath": "/opt/homebrew/bin/clang++",  // Path to clang++
+      "cStandard": "gnu17",
+      "cppStandard": "gnu++14",
+      "intelliSenseMode": "clang-x64"
+    }
+  ],
+  "version": 4
+}
+
