@@ -12,7 +12,7 @@
         "/System/Library/Frameworks",
         "/Library/Frameworks"
       ],
-      "compilerPath": "/opt/homebrew/bin/clang++",  // Path to clang++
+      "compilerPath": "/usr/bin/clang++",  // Path to clang++
       "cStandard": "gnu17",
       "cppStandard": "gnu++14",
       "intelliSenseMode": "clang-x64"
