@@ -1,0 +1,57 @@
+# CMake specific files/directories to ignore
+
+# Build output directory
+build/
+
+# CMake cache and temporary files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.make
+
+# For out-of-source builds
+*/CMakeFiles/
+*/CMakeCache.txt
+*/cmake_install.cmake
+*/Makefile
+*/*.make
+
+# For CMake GUI
+CMakeUserPresets.json
+CMakeSettings.json
+
+# For Eclipse CDT4 users
+.cproject
+.project
+
+# For Visual Studio Code users
+.vscode/
+
+# Compiler specific files
+*.sdf
+*.suo
+*.user
+*.userprefs
+*.o
+*.a
+*.lo
+*.la
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.pdb
+*.lib
+*.d
+*.map
+Debug/
+Release/
+bin/
+obj/
