@@ -8,6 +8,34 @@ EuropeanOption::EuropeanOption(){
     Init();
 }
 
+EuropeanOption::EuropeanOption(Batch* batch, int model_number): t_(batch->GetT()), k_(batch->GetK()),
+                                            sig_(batch->GetSig()), r_(batch->GetR()), s_(batch->GetS()),
+                                            option_type_(batch->GetOptionType()), underlying_name_(batch->GetUnderlyingName())
+                                            {
+    switch (model_number)
+    {
+    case 0:
+        // Black-Scholes stock option
+        b_ = r_;
+        break;
+    case 1:
+        // Morton model w/ continuous dividend yield q.
+        b_ = r_-q_;
+        break;
+    case 2:
+        // Black-Scholes futures option
+        b_ = 0;
+        break;
+    case 3:
+        // Garman and Kohlhagen currency option Model
+        b_ = r_;
+        break;
+    
+    default:
+        break;
+    }
+}
+
 EuropeanOption::EuropeanOption(const EuropeanOption& other){
     Copy(other);
 }
@@ -72,10 +100,12 @@ double EuropeanOption::PutPrice(double u) const{
 
 double EuropeanOption::CallDelta(double u) const{
 
+    return 0;
 }
 
 double EuropeanOption::PutDelta(double u) const{
 
+    return 0;
 }
 
 // Gaussian functions
@@ -123,6 +153,7 @@ double EuropeanOption::Delta(double u) const{
 // Function to check the Put-Call parity of an option price
 bool EuropeanOption::CheckParity(const EuropeanOption& other) const{
 
+    return false;
 }
 
 /* Getters */
@@ -145,6 +176,14 @@ double EuropeanOption::GetK(){
 
 double EuropeanOption::GetB(){
     return b_;
+}
+
+double EuropeanOption::GetRR(){
+    return R_;
+}
+
+double EuropeanOption::GetS(){
+    return s_;
 }
 
 string EuropeanOption::GetOptionType(){
@@ -195,7 +234,7 @@ EuropeanOption& EuropeanOption::operator = (const EuropeanOption other){
 /* Modifier Functions */
 
 // Changes option_type between call and put
-void EuropeanOption::toggle(){
+void EuropeanOption::Toggle(){
     if(option_type_ == "C"){
         option_type_ = "P";
     }else{
@@ -203,4 +242,15 @@ void EuropeanOption::toggle(){
     }
 } 
 
+std::string EuropeanOption::ToString() const {
+        std::ostringstream stream;
+        stream << "Option Type: " << option_type_ << "\n"
+               << "Underlying Name: " << underlying_name_ << "\n"
+               << "Expiry Time (Years): " << t_ << "\n"
+               << "Volatility: " << sig_ << "\n"
+               << "Risk-Free Interest Rate: " << r_ << "\n"
+               << "Strike Price: " << k_ << "\n"
+               << "Cost of Carry: " << b_;
+        return stream.str();
+}
 #endif

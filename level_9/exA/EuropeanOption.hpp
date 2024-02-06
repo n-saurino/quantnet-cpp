@@ -8,7 +8,10 @@
 
 #ifndef EUROPEANOPTION_HPP
 #define EUROPEANOPTION_HPP
+#include <iostream>
+#include <sstream>
 #include <string>
+#include "Batch.h"
 
 using namespace std;
 
@@ -20,6 +23,9 @@ private:
     double r_; // Risk-free interest rate
     double k_; // Strike price
     double b_; // Cost of carry
+    double s_; // Stock price
+    double q_; // dividend yield
+    double R_; // foreign risk-free interest rate
     string option_type_; // Call or put option
     string underlying_name_; // Name of underlying stock
     
@@ -39,6 +45,7 @@ private:
 
 public:
     EuropeanOption();
+    EuropeanOption(Batch* batch, int model_number);
     EuropeanOption(const EuropeanOption& other);
     EuropeanOption(const string option_type);
     virtual ~EuropeanOption();
@@ -51,6 +58,8 @@ public:
     double GetR();
     double GetK();
     double GetB();
+    double GetS();
+    double GetRR();
     string GetOptionType();
     string GetUnderlyingName();
 
@@ -67,7 +76,8 @@ public:
     EuropeanOption& operator = (const EuropeanOption other);
 
     // Modifier functions
-    void toggle(); // Changes option_type between call and put
+    void Toggle(); // Changes option_type between call and put
+    string ToString() const;
 
 };
 
