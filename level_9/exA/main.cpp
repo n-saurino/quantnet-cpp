@@ -17,6 +17,8 @@ int main(int, char**){
 
     std::cout << "Hello, from EXA!\n";
 
+    cout << "PART A.a" << endl;
+
     Batch1 b1;
     Batch* b = &b1;    
 
@@ -31,5 +33,21 @@ int main(int, char**){
     cout << option.ToString() << endl;
     cout << option.Price(option.GetS()) << endl;
     cout << "Price difference: " << option.Price(option.GetS()) - b->GetP() << endl;
+
+    cout << endl;
+    cout << "-----------------------\n";
+    cout << endl;
+
+    cout << "PART A.b" << endl;
+
+    cout << "Parity Check: " << option.CheckParity() << endl;
+
+    cout << "Call price based on parity: " << option.CalculateParity() << endl;
+
+    cout << endl;
+    cout << "-----------------------\n";
+    cout << endl;
+
+    cout << "PART A.c" << endl;
 
 }

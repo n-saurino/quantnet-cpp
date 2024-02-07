@@ -51,8 +51,8 @@ public:
     virtual ~EuropeanOption();
     double Price(double u) const;
     double Delta(double u) const;
-    bool CheckParity(const EuropeanOption& other) const;
-	int CalculateParity(const EuropeanOption& other) const;
+    bool CheckParity(/*const EuropeanOption& other*/) const;
+	double CalculateParity(/*const EuropeanOption& other*/) const;
     // Getters
     double GetT();
     double GetSig();

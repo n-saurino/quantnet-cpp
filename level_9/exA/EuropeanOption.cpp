@@ -143,14 +143,20 @@ double EuropeanOption::Delta(double u) const{
 }
 
 // Function to check the Put-Call parity of an option price
-bool EuropeanOption::CheckParity(const EuropeanOption& other) const{
-
-    return false;
+bool EuropeanOption::CheckParity() const{
+	bool result = 0;
+	if(this->CallPrice(this->s_) + k_*exp(-r_*t_) == this->PutPrice(this->s_) + this->s_){
+		result = 1;
+	}
+    return result;
 }
 
-int EuropeanOption::CalculateParity(const EuropeanOption& other) const{
-
-    return 0;
+double EuropeanOption::CalculateParity() const{
+	if(option_type_ == "C"){
+		return this->CallPrice(this->s_) + k_*exp(-r_*t_) - this->s_;
+	}else{
+		return this->PutPrice(this->s_) + this->s_ - k_*exp(-r_*t_);
+	}
 }
 
 /* Getters */
