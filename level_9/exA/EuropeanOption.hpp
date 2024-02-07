@@ -11,6 +11,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <vector>
 #include "Batch.h"
 
 using namespace std;
@@ -53,6 +54,7 @@ public:
     double Delta(double u) const;
     bool CheckParity(/*const EuropeanOption& other*/) const;
 	double CalculateParity(/*const EuropeanOption& other*/) const;
+
     // Getters
     double GetT();
     double GetSig();

@@ -3,17 +3,15 @@
 #include "EuropeanOption.hpp"
 #include "Model_Name.h"
 
-int main(int, char**){
+vector<double>* PriceVector(double start, double end, double h, const EuropeanOption& other){
+	vector<double>* mesh = new vector<double>;
+	for(double i = start; i <= end; i+=h){
+		mesh->push_back(other.Price(i));
+	}
+	return mesh;
+}
 
-    /*
-    T (expiry time/maturity): T=1 means one year
-    K (strike price)
-    sig (volatility)
-    r (risk-free interest rate)
-    S (current stock price where we wish to price the option)
-    C (call option price)
-    P (puth option price)
-    */
+int main(int, char**){
 
     std::cout << "Hello, from EXA!\n";
 
@@ -49,5 +47,16 @@ int main(int, char**){
     cout << endl;
 
     cout << "PART A.c" << endl;
+
+    vector<double>* price_vector = PriceVector(10, 50, 1, option);
+
+    cout << "Prices for mesh: ";
+    for(double price : *price_vector){
+        cout << price << ", ";
+    }
+    cout << endl;
+
+    delete price_vector;
+    price_vector = nullptr;
 
 }
