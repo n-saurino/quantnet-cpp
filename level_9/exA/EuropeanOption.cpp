@@ -148,6 +148,11 @@ bool EuropeanOption::CheckParity(const EuropeanOption& other) const{
     return false;
 }
 
+int EuropeanOption::CalculateParity(const EuropeanOption& other) const{
+
+    return 0;
+}
+
 /* Getters */
 
 double EuropeanOption::GetT(){

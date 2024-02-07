@@ -20,17 +20,16 @@ int main(int, char**){
     Batch1 b1;
     Batch* b = &b1;    
 
-    EuropeanOption option_b1(b, BlackScholesStockOption);
+    EuropeanOption option(b, BlackScholesStockOption);
 
-    cout << option_b1.ToString() << endl;
-    cout << option_b1.Price(option_b1.GetS()) << endl;
-    cout << "Price difference: " << option_b1.Price(option_b1.GetS()) - b->GetC() << endl;
+    cout << option.ToString() << endl;
+    cout << option.Price(option.GetS()) << endl;
+    cout << "Price difference: " << option.Price(option.GetS()) - b->GetC() << endl;
 
-    option_b1.Toggle();
+    option.Toggle();
 
-    cout << option_b1.ToString() << endl;
-    cout << option_b1.Price(option_b1.GetS()) << endl;
-    cout << "Price difference: " << option_b1.Price(option_b1.GetS()) - b->GetP() << endl;
-
+    cout << option.ToString() << endl;
+    cout << option.Price(option.GetS()) << endl;
+    cout << "Price difference: " << option.Price(option.GetS()) - b->GetP() << endl;
 
 }

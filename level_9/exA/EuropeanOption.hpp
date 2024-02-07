@@ -52,6 +52,7 @@ public:
     double Price(double u) const;
     double Delta(double u) const;
     bool CheckParity(const EuropeanOption& other) const;
+	int CalculateParity(const EuropeanOption& other) const;
     // Getters
     double GetT();
     double GetSig();
