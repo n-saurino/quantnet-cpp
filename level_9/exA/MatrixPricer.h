@@ -11,19 +11,19 @@ class MatrixPricer
 {
 private:
     /* data */
-    vector<vector<double>*> params_;
+    vector<vector<double>> params_;
     T option_;
 
 public:
-    MatrixPricer(const vector<vector<double>*>& params);
+    MatrixPricer(const vector<vector<double>>& params);
     ~MatrixPricer();
 
     // type: call or put
-    vector<double>* Price(string type);
+    vector<double> Price(string type);
 };
 
 template<typename T>
-MatrixPricer<T>::MatrixPricer(const vector<vector<double>*>& params): params_(params)
+MatrixPricer<T>::MatrixPricer(const vector<vector<double>>& params): params_(params)
 {
 }
 
@@ -33,7 +33,7 @@ MatrixPricer<T>::~MatrixPricer()
 }
 
 template<typename T>
-vector<double>* MatrixPricer<T>::Price(string type){
+vector<double> MatrixPricer<T>::Price(string type){
     double t; // Expiry time in years
     double sig; // Volatility
     double r; // Risk-free interest rate
@@ -42,15 +42,15 @@ vector<double>* MatrixPricer<T>::Price(string type){
     double s; // Stock price
     double q; // dividend yield
     double R; // foreign risk-free interest rate
-    vector<double>* prices = new vector<double>;
+    vector<double> prices;
     option_.SetOptionType(type);
     
-    for(int i = 0; i < (*params_[0]).size(); ++i){
-        t = (*params_[0])[i];
-        sig = (*params_[1])[i];
-        r = (*params_[2])[i];
-        k = (*params_[3])[i];
-        s = (*params_[4])[i];
+    for(int i = 0; i < (params_[0]).size(); ++i){
+        t = params_[0][i];
+        sig = params_[1][i];
+        r = params_[2][i];
+        k = params_[3][i];
+        s = params_[4][i];
 
         option_.SetT(t);
         option_.SetSig(sig);
@@ -64,7 +64,7 @@ vector<double>* MatrixPricer<T>::Price(string type){
         cout << "s: " << s << endl;
         double price = option_.Price(s);
         cout << "price: " << price << endl;
-        prices->push_back(price);
+        prices.push_back(price);
     }
 
     return prices;

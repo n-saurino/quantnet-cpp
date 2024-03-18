@@ -6,34 +6,27 @@
 
 
 
-vector<double>* CreateMesh(double start, double end, double h){
-    vector<double>* mesh = new vector<double>;
+vector<double> CreateMesh(double start, double end, double h){
+    vector<double> mesh;
     for(double i = start; i <= end; i+=h){
-		mesh->push_back(i);
+		mesh.push_back(i);
 	}
     return mesh;
 }
 
 // Function to create a matrix of mesh vectors
-std::vector<std::vector<double>*> CreateMeshMatrix(
+std::vector<std::vector<double>> CreateMeshMatrix(
     const std::vector<std::tuple<double, double, double>>& params) {
-    std::vector<std::vector<double>*> matrix;
+    std::vector<std::vector<double>> matrix;
 
     for (const auto& param : params) {
         double start, end, h;
         std::tie(start, end, h) = param; // Unpack the tuple
-        std::vector<double>* mesh = CreateMesh(start, end, h);
+        std::vector<double> mesh = CreateMesh(start, end, h);
         matrix.push_back(mesh);
     }
 
     return matrix;
-}
-
-// Function to clean up memory allocated for the matrix of meshes
-void CleanUpMeshMatrix(std::vector<std::vector<double>*> matrix) {
-    for (auto mesh : matrix) {
-        delete mesh; // Delete each dynamically allocated vector to prevent memory leaks
-    }
 }
 
 int main(int, char**){
@@ -71,18 +64,16 @@ int main(int, char**){
 
     cout << "PART A.c" << endl;
 
-    vector<double>* mesh = CreateMesh(10, 50, 1);
+    vector<double> mesh = CreateMesh(10, 50, 1);
 
-    vector<double>* price_vector = option.PriceVector(*mesh);
+    vector<double> price_vector = option.PriceVector(mesh);
 
     cout << "Prices for mesh: ";
-    for(double price : *price_vector){
+    for(double price : price_vector){
         cout << price << ", ";
     }
     cout << endl;
 
-    delete price_vector;
-    price_vector = nullptr;
 
     cout << "PART A.d" << endl;
 
@@ -99,7 +90,7 @@ int main(int, char**){
     MatrixPricer<EuropeanOption> mp(mesh_matrix);
 
     cout << "Prices for mesh matrix: " << endl;
-    vector<double> prices = *(mp.Price("C"));
+    vector<double> prices = mp.Price("C");
 
     for(double price : prices){
         cout << "price: " << price << endl;
@@ -107,6 +98,4 @@ int main(int, char**){
 
     cout << endl;
 
-
-    CleanUpMeshMatrix(mesh_matrix);
 }

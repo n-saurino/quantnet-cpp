@@ -102,10 +102,10 @@ double EuropeanOption::PutPrice(double u) const{
 	return price;
 }
 
-vector<double>* EuropeanOption::PriceVector(const vector<double>& mesh){
-	vector<double>* result = new vector<double>;
+vector<double> EuropeanOption::PriceVector(const vector<double>& mesh){
+	vector<double> result;
 	for(auto val : mesh){
-		result->push_back(this->Price(val));
+		result.push_back(this->Price(val));
 	}
 	return result;
 }
