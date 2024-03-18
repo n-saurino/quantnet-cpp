@@ -2,18 +2,41 @@
 #include "Batch.h"
 #include "EuropeanOption.hpp"
 #include "Model_Name.h"
+#include "MatrixPricer.h"
 
-vector<double>* PriceVector(double start, double end, double h, const EuropeanOption& other){
-	vector<double>* mesh = new vector<double>;
-	for(double i = start; i <= end; i+=h){
-		mesh->push_back(other.Price(i));
+
+
+vector<double>* CreateMesh(double start, double end, double h){
+    vector<double>* mesh = new vector<double>;
+    for(double i = start; i <= end; i+=h){
+		mesh->push_back(i);
 	}
-	return mesh;
+    return mesh;
+}
+
+// Function to create a matrix of mesh vectors
+std::vector<std::vector<double>*> CreateMeshMatrix(
+    const std::vector<std::tuple<double, double, double>>& params) {
+    std::vector<std::vector<double>*> matrix;
+
+    for (const auto& param : params) {
+        double start, end, h;
+        std::tie(start, end, h) = param; // Unpack the tuple
+        std::vector<double>* mesh = CreateMesh(start, end, h);
+        matrix.push_back(mesh);
+    }
+
+    return matrix;
+}
+
+// Function to clean up memory allocated for the matrix of meshes
+void CleanUpMeshMatrix(std::vector<std::vector<double>*> matrix) {
+    for (auto mesh : matrix) {
+        delete mesh; // Delete each dynamically allocated vector to prevent memory leaks
+    }
 }
 
 int main(int, char**){
-
-    std::cout << "Hello, from EXA!\n";
 
     cout << "PART A.a" << endl;
 
@@ -48,7 +71,9 @@ int main(int, char**){
 
     cout << "PART A.c" << endl;
 
-    vector<double>* price_vector = PriceVector(10, 50, 1, option);
+    vector<double>* mesh = CreateMesh(10, 50, 1);
+
+    vector<double>* price_vector = option.PriceVector(*mesh);
 
     cout << "Prices for mesh: ";
     for(double price : *price_vector){
@@ -59,4 +84,29 @@ int main(int, char**){
     delete price_vector;
     price_vector = nullptr;
 
+    cout << "PART A.d" << endl;
+
+    std::vector<std::tuple<double, double, double>> params = {
+        {0, 1, 0.02},  // t: Time to expiration, from now to one year, with a step size to produce 51 elements
+        {0.1, 0.5, 0.008},  // sig: Volatility, from 10% to 50%, with the adjusted step size
+        {0.005, 0.05, 0.0009},  // r: Risk-free interest rate, from 0.5% to 5%, with the adjusted step size
+        {80, 120, 0.8},  // k: Strike price, range with the adjusted step size
+        {90, 110, 0.4}   // s: Underlying asset price, range with the adjusted step size
+    };
+
+    auto mesh_matrix = CreateMeshMatrix(params);
+
+    MatrixPricer<EuropeanOption> mp(mesh_matrix);
+
+    cout << "Prices for mesh matrix: " << endl;
+    vector<double> prices = *(mp.Price("C"));
+
+    for(double price : prices){
+        cout << "price: " << price << endl;
+    }
+
+    cout << endl;
+
+
+    CleanUpMeshMatrix(mesh_matrix);
 }

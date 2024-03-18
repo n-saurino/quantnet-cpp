@@ -12,7 +12,7 @@ find_package(Boost 1.83.0)
 # If Boost was found successfully, include directories and link libraries
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
-    add_executable(main main.cpp EuropeanOption.cpp Batch.h)
+    add_executable(main main.cpp EuropeanOption.cpp Batch.h MatrixPricer.h)
     target_link_libraries(main ${Boost_LIBRARIES})
 endif()
 

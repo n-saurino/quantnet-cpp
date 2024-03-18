@@ -102,6 +102,14 @@ double EuropeanOption::PutPrice(double u) const{
 	return price;
 }
 
+vector<double>* EuropeanOption::PriceVector(const vector<double>& mesh){
+	vector<double>* result = new vector<double>;
+	for(auto val : mesh){
+		result->push_back(this->Price(val));
+	}
+	return result;
+}
+
 double EuropeanOption::CallDelta(double u) const{
 
     return 0;

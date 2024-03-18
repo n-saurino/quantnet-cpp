@@ -54,6 +54,7 @@ public:
     double Delta(double u) const;
     bool CheckParity(/*const EuropeanOption& other*/) const;
 	double CalculateParity(/*const EuropeanOption& other*/) const;
+    vector<double>* PriceVector(const vector<double>& mesh);
 
     // Getters
     double GetT();
